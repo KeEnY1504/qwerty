@@ -100,7 +100,7 @@ document.getElementById('search_close_modal').addEventListener('click', function
 
 
 
-fetch(`https://6729b8f86d5fa4901b6e13bc.mockapi.io/attractions/`)
+
 
 
 
@@ -146,6 +146,22 @@ document.getElementById('search_input').addEventListener('keypress', function(se
   }
 });
 
+fetch(`https://6729b8f86d5fa4901b6e13bc.mockapi.io/attractions/`)
+ 
+// Функция для переноса на другую страницу
+function nextIndex(cardId) {      
+// Здесь можно указать, на какую страницу вы хотите перенаправить
+window.location.href = `index2.html?id=${cardId}`;
+}
 
-href = document.getElementsByClassName('.card')
+// Привязка обработчика событий к карточкам
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('click', () => {
+    const cardId = card.id; // Получаем id карточки
+    nextIndex(cardId); // Вызываем функцию переноса
+  });
+});
+
+
+
 
